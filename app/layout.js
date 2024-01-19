@@ -3,7 +3,7 @@ import './globals.css';
 
 import { AntdRegistry } from '@ant-design/nextjs-registry';
 import { Layout, Typography, Space } from 'antd';
-import { Navbar } from './components';
+import { Footer, Navbar } from './components';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -15,13 +15,17 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang='en'>
-      <body className={inter.className}>
+      <body className={(inter.className, 'app')}>
         <AntdRegistry>
           <header className='navbar'>
             <Navbar />
           </header>
-          {children}
-          <footer></footer>
+          <main className='main'>
+            <Layout>
+              <div className='routes'>{children}</div>
+              <Footer />
+            </Layout>
+          </main>
         </AntdRegistry>
       </body>
     </html>

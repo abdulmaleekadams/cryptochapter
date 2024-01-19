@@ -28,7 +28,7 @@ const Navbar = () => {
           <Link href={'/exchanges'}>Exchanges</Link>
         </Menu.Item>
         <Menu.Item icon={<BulbOutlined />}>
-          <Link href={'/news'}>Home</Link>
+          <Link href={'/news'}>News</Link>
         </Menu.Item>
       </Menu>
     </div>
