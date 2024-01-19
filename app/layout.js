@@ -1,9 +1,10 @@
 import { Inter } from 'next/font/google';
+import { Layout } from 'antd';
 import './globals.css';
 
 import { AntdRegistry } from '@ant-design/nextjs-registry';
-import { Layout, Typography, Space } from 'antd';
 import { Footer, Navbar } from './components';
+import StoreProvider from './components/StoreProvider';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -16,17 +17,19 @@ export default function RootLayout({ children }) {
   return (
     <html lang='en'>
       <body className={(inter.className, 'app')}>
-        <AntdRegistry>
-          <header className='navbar'>
-            <Navbar />
-          </header>
-          <main className='main'>
-            <Layout>
-              <div className='routes'>{children}</div>
-              <Footer />
-            </Layout>
-          </main>
-        </AntdRegistry>
+        <StoreProvider>
+          <AntdRegistry>
+            <header className='navbar'>
+              <Navbar />
+            </header>
+            <main className='main'>
+              <Layout>
+                <div className='routes'>{children}</div>
+                <Footer />
+              </Layout>
+            </main>
+          </AntdRegistry>
+        </StoreProvider>
       </body>
     </html>
   );
